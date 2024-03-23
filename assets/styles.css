@@ -1,0 +1,140 @@
+html {
+    overflow: hidden;
+}
+
+body {
+    background: #000;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+#darker {
+    z-index: 200;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+    display: none;
+}
+
+#darker.shown {
+    display: block;
+}
+
+body * {
+    padding: 0;
+    margin: 0;
+}
+
+input[type='text'] {
+    width: 100%;
+}
+
+.vid_window {
+    box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.2);
+    border: 3px ridge gray;
+}
+
+.vid_window .vid_frame {
+    height: 400px;
+    background: black;
+}
+
+.vid_window .vid_frame iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.vid_window .vid_info {
+    background: #d5d5d5;
+    height: 182px;
+    padding: 5px 0px 0px 5px;
+}
+
+.vid_window .vid_buttons {
+    height: 34px;
+    background: black;
+    border-top: 1px solid gray;
+    display: flex;
+    display: flex;
+    justify-content: center;
+}
+
+.vid_buttons div {
+    width: 35px;
+    background-image: url('arrows.jpg');
+    cursor: pointer;
+    opacity: 75%;
+    transition: opacity 150ms ease-in-out;
+}
+
+.vid_buttons #back_btn {
+    margin-left: auto;
+}
+
+.vid_buttons #history_btn {
+    background-position: -36px 0px;
+}
+
+.vid_buttons #forward_btn {
+    background-position: -72px 0px;
+}
+
+.vid_buttons #fave_btn {
+    background-position: -109px 0px;
+    margin-left: auto;
+}
+
+.vid_buttons #settings_btn {
+    background-position: -109px 0px;
+}
+
+.vid_buttons div:hover {
+    opacity: 100%;
+}
+
+.messagebox {
+    position: absolute;
+    min-height: 93px;
+    top: 46%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 1024;
+    background: #d5d5d5;
+    padding: 13px;
+    width: 283px;
+    border: 3px ridge gray;
+}
+
+.item p, .item a {
+    color: black;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+.item td {
+    vertical-align: top;
+}
+
+.item img {
+    width: 65px;
+}
+
+.item:hover {
+    background: #ffffff;
+}
+
+.vids {
+    margin-top: 9px;
+    float: left;
+}
+
+.hed {
+    display: table;
+    clear: both;
+    width: 100%;
+}

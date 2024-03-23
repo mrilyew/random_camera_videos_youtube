@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Youtube Camera Video</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <div id='darker'></div>
+    <div style='padding: 3% 12% 0px 12%;'>
+        <div class="vid_window">
+            <div class="vid_frame">
+                <iframe src='https://www.youtube-nocookie.com/embed/' id='_embedyt' frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="vid_buttons">
+                <div id="settings_btn"></div>
+                <div id="back_btn"></div>
+                <div id="history_btn"></div>
+                <div id="forward_btn"></div>
+            </div>
+            <div class="vid_info">
+                <h4 id='_name'>Video name</h4>
+                <p id='_desc'>Description</p>
+                <p id='_date'>Publication Date</p>
+                <a id='_channel' target='_blank' href="#">Channel name</a>
+            </div>
+        </div>
+    </div>
+    <script src='assets/main.js'></script>
+</body>
+</html>
