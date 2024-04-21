@@ -9,6 +9,10 @@ body {
     margin: 0;
 }
 
+.wrapper {
+    padding: 3% 12% 0px 12%;
+}
+
 #darker {
     z-index: 200;
     position: fixed;
@@ -98,6 +102,7 @@ input[type='button'] {
     cursor: pointer;
     opacity: 75%;
     transition: opacity 150ms ease-in-out;
+    background-repeat: no-repeat;
 }
 
 .vid_buttons #back_btn {
@@ -162,32 +167,68 @@ input[type='button'] {
     color: white;
 }
 
-.item p, .item a {
+.messagebox .messagebox_body .item p, .messagebox_body .item a {
     color: black;
     padding: 0;
     margin: 0;
     text-decoration: none;
 }
 
-.item td {
+.messagebox .messagebox_body .item td {
     vertical-align: top;
 }
 
-.item img {
+.messagebox .messagebox_body .item img {
     width: 65px;
 }
 
-.item:hover {
+.messagebox .messagebox_body .item.sel {
+    background: fuchsia;
+}
+
+.messagebox .messagebox_body .item:hover {
     background: #ffffff;
 }
 
-.vids {
-    margin-top: 9px;
-    float: left;
-}
+@media (max-width: 868px) {
+    .wrapper {
+        padding: unset !important;
+    }
 
-.hed {
-    display: table;
-    clear: both;
-    width: 100%;
+    .vid_window {
+        box-shadow: unset !important;
+        border: unset !important;
+    }
+
+    .vid_buttons #back_btn {
+        margin-left: unset !important;
+    }
+
+    .vid_window .vid_buttons {
+        height: 64px !important;
+    }
+
+    .vid_buttons div {
+        width: 35px !important;
+    }
+
+    .messagebox {
+        left: unset !important;
+        top: unset !important;
+        transform: unset !important;
+        min-height: 100vh !important;
+        width: 100%;
+    }
+
+    .messagebox .messagebox_header {
+        height: 63px;
+    }
+
+    #_cross {
+        font-size: 44px;
+    }
+
+    body * {
+        font-size: 25px;
+    }
 }

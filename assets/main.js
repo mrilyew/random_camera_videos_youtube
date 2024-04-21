@@ -6,7 +6,7 @@ let videos = {
     'cursor': 0,
     'items': [],
 }
-let queries = ['camera', 'img', 'dsc', 'bandicam', 'video', 'vid', 'movavi']
+let queries = ['camera', 'img', 'dsc', 'bandicam', 'video', 'vid', 'movavi', 'gopro4', 'gopro7', 'nikon', 'samsung', 'videoregister']
 
 function random_int(min = 0, max = 100) 
 {
@@ -116,6 +116,22 @@ class YouTube {
             case 'movavi':
                 so_query = 'movavi video editor plus'
                 break
+            case 'gopro4':
+                so_query = `GOPR${String(random_int(0, 1000)).padStart(4, '0')}`
+                break
+            case 'gopro7':
+                so_query = `GH01${String(random_int(0, 1000)).padStart(4, '0')}`
+                break
+            case 'nikon':
+                so_query = `DSCN${String(random_int(0, 1000)).padStart(4, '0')}`
+                break
+            case 'samsung':
+                so_query = `SAM_${String(random_int(0, 1000)).padStart(4, '0')}`
+                break
+            case 'videoregister':
+                let datingfcknjs3 = new Date(random_int(1208768777, 1650799247) * 1024)
+                so_query = `ch${String(random_int(0, 10)).padStart(2, '0')} ${datingfcknjs3.getFullYear()}${String(datingfcknjs3.getMonth()).padStart(2, '0')}${String(datingfcknjs3.getDate()).padStart(2, '0')}`
+                break
         }
 
         return so_query
@@ -123,7 +139,7 @@ class YouTube {
 
     search(query) {
         document.title = query
-        
+
         $.ajax('https://www.googleapis.com/youtube/v3/search', {
             type: "GET",
             async: true,
@@ -131,7 +147,7 @@ class YouTube {
                 'key': this.getToken(),
                 'part': 'snippet',
                 'q': query,
-                'order': 'date',
+                'order': localStorage.query_type != 'videoregister' ? 'date' : 'title',
                 'maxResults': this.getCount(),
                 'type': 'video',
                 'videoEmbeddable': 'true',
@@ -226,7 +242,7 @@ $(document).on('click', '#history_btn', (e) => {
 
     videos.items.forEach(vid => {
         $('.vids tbody')[0].insertAdjacentHTML('beforeend', `
-        <tr class='item'>
+        <tr class='item ${vid.id.videoId == videos.items[videos.cursor].id.videoId ? 'sel' : ''}'>
             <td>
                 <img src="${vid.snippet.thumbnails.medium.url}">
             </td>
@@ -249,11 +265,16 @@ $(document).on('click', '#settings_btn', (e) => {
         <select id='query'>
             <option value='camera' ${localStorage.query_type == 'camera' ? 'selected' : ''}>Видео с веб-камеры. Дата: DD MM YYYY г.</option>
             <option value='img' ${localStorage.query_type == 'img' ? 'selected' : ''}>IMG XXXX</option>
-            <option value='dsc' ${localStorage.query_type == 'dsc' ? 'selected' : ''}>DSC XXXX</option>
             <option value='bandicam' ${localStorage.query_type == 'bandicam' ? 'selected' : ''}>bandicam YYYY MM DD</option>
             <option value='video' ${localStorage.query_type == 'video' ? 'selected' : ''}>video YYYY MM DD</option>
             <option value='vid' ${localStorage.query_type == 'vid' ? 'selected' : ''}>VID YYYY MM DD</option>
             <option value='movavi' ${localStorage.query_type == 'movavi' ? 'selected' : ''}>movavi video editor plus</option>
+            <option value='gopro4' ${localStorage.query_type == 'gopro4' ? 'selected' : ''}>GOPRXXXX</option>
+            <option value='gopro7' ${localStorage.query_type == 'gopro7' ? 'selected' : ''}>GH01XXXX</option>
+            <option value='dsc' ${localStorage.query_type == 'dsc' ? 'selected' : ''}>DSC XXXX</option>
+            <option value='nikon' ${localStorage.query_type == 'nikon' ? 'selected' : ''}>DSCNXXXX</option>
+            <option value='samsung' ${localStorage.query_type == 'samsung' ? 'selected' : ''}>SAM_XXXX</option>
+            <option value='videoregister' ${localStorage.query_type == 'videoregister' ? 'selected' : ''}>CHXX YYYY MM DD</option>
             <option value='random' ${localStorage.query_type == 'random' ? 'selected' : ''}>Случайно</option>
         </select>
 
