@@ -6,7 +6,7 @@ let videos = {
     'cursor': 0,
     'items': [],
 }
-let queries = ['camera', 'img', 'dsc', 'bandicam', 'video', 'vid', 'movavi', 'gopro4', 'gopro7', 'nikon', 'samsung', 'videoregister']
+let queries = ['camera', 'img', 'dsc', 'bandicam', 'video', 'vid', 'movavi', 'gopro4', 'gopro7', 'nikon', 'samsung', 'videoregister', 'mvi', 'wp']
 
 function random_int(min = 0, max = 100) 
 {
@@ -126,11 +126,18 @@ class YouTube {
                 so_query = `DSCN${String(random_int(0, 1000)).padStart(4, '0')}`
                 break
             case 'samsung':
-                so_query = `SAM_${String(random_int(0, 1000)).padStart(4, '0')}`
+                so_query = `SAM ${String(random_int(0, 1000)).padStart(4, '0')}`
                 break
             case 'videoregister':
                 let datingfcknjs3 = new Date(random_int(1208768777, 1650799247) * 1024)
                 so_query = `ch${String(random_int(0, 10)).padStart(2, '0')} ${datingfcknjs3.getFullYear()}${String(datingfcknjs3.getMonth()).padStart(2, '0')}${String(datingfcknjs3.getDate()).padStart(2, '0')}`
+                break
+            case 'mvi':
+                so_query = `MVI ${String(random_int(0, 1000)).padStart(4, '0')}`
+                break
+            case 'wp':
+                let datingfcknjs4 = new Date(random_int(1324411140, 1582577940) * 1024)
+                so_query = `WP ${datingfcknjs.getFullYear()}${String(datingfcknjs4.getMonth()).padStart(2, '0')}${String(datingfcknjs4.getDate()).padStart(2, '0')}`
                 break
         }
 
@@ -202,7 +209,7 @@ window.youtube = new YouTube
 
 if(!window.youtube.hasToken()) {
     makeMessagebox('Токен', `
-        <p>Введи токен YouTube API.</p>
+        <p>Введи токен YouTube API <a target='_blank' href='https://console.cloud.google.com/apis/dashboard'>(получить токен)</a></p>
         <input type="text" id='_token' placeholder='Токен' style='margin-top: 5px;'>
 
         <div class='actions' style='margin-top: 5px;'>
@@ -275,6 +282,8 @@ $(document).on('click', '#settings_btn', (e) => {
             <option value='nikon' ${localStorage.query_type == 'nikon' ? 'selected' : ''}>DSCNXXXX</option>
             <option value='samsung' ${localStorage.query_type == 'samsung' ? 'selected' : ''}>SAM_XXXX</option>
             <option value='videoregister' ${localStorage.query_type == 'videoregister' ? 'selected' : ''}>CHXX YYYY MM DD</option>
+            <option value='mvi' ${localStorage.query_type == 'mvi' ? 'selected' : ''}>MVI XXXX</option>
+            <option value='wp' ${localStorage.query_type == 'wp' ? 'selected' : ''}>WP YYYYMMDD</option>
             <option value='random' ${localStorage.query_type == 'random' ? 'selected' : ''}>Случайно</option>
         </select>
 
