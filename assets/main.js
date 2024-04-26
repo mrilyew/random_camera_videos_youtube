@@ -137,7 +137,7 @@ class YouTube {
                 break
             case 'wp':
                 let datingfcknjs4 = new Date(random_int(1324411140, 1582577940) * 1024)
-                so_query = `WP ${datingfcknjs.getFullYear()}${String(datingfcknjs4.getMonth()).padStart(2, '0')}${String(datingfcknjs4.getDate()).padStart(2, '0')}`
+                so_query = `WP ${datingfcknjs4.getFullYear()}${String(datingfcknjs4.getMonth()).padStart(2, '0')}${String(datingfcknjs4.getDate()).padStart(2, '0')}`
                 break
         }
 
@@ -168,7 +168,7 @@ class YouTube {
             },
             success: (data) => {
                 videos.items = videos.items.concat(data.items)
-                videos.count += 50
+                videos.count += data.items.length
                 videos.cursor += 1
 
                 $('iframe')[0].setAttribute('src', 'https://www.youtube-nocookie.com/embed/' + videos.items[0].id.videoId + '?autoplay=1')
