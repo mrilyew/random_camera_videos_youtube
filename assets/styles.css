@@ -58,6 +58,11 @@ input[type='number'] {
     font-size: 15px;
 }
 
+input[type='checkbox'] {
+    border-radius: 0px;
+    margin-right: 6px;
+}
+
 input[type='button'] {
     border-radius: 0px;
     padding: 3px;

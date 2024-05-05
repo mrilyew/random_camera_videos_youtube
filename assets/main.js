@@ -141,6 +141,11 @@ class YouTube {
                 break
         }
 
+        if(localStorage.before == '1') {
+            let rnddate = new Date(random_int(1262293200, Math.round(Date.now() / 1024)) * 1024)
+            so_query += ` before:${rnddate.getFullYear()}-${String(rnddate.getMonth()).padStart(2, '0')}-${String(rnddate.getDate()).padStart(2, '0')}`
+        }
+
         return so_query
     }
 
@@ -170,8 +175,7 @@ class YouTube {
                 videos.items = videos.items.concat(data.items)
                 videos.count += data.items.length
                 videos.cursor += 1
-
-                $('iframe')[0].setAttribute('src', 'https://www.youtube-nocookie.com/embed/' + videos.items[0].id.videoId + '?autoplay=1')
+                
                 this.moveNext()
             },
         })
@@ -287,6 +291,10 @@ $(document).on('click', '#settings_btn', (e) => {
             <option value='random' ${localStorage.query_type == 'random' ? 'selected' : ''}>Случайно</option>
         </select>
 
+        <br>
+
+        <label><input id='_before' type='checkbox' ${localStorage.before == '1' ? 'checked' : ''}>before:YYYY-MM-DD</label>
+
         <p style='margin-top: 10px;'>Число видео</p>
         <input id='count' type="number" min='10' max='50' step='1' value='${window.youtube.getCount()}'>
 
@@ -304,6 +312,10 @@ $(document).on('click', '#settings_btn', (e) => {
 
     $('.messagebox #_settoken').on('change', (e) => {
         localStorage.yt_token = e.currentTarget.value
+    })
+
+    $('.messagebox #_before').on('change', (e) => {
+        localStorage.before = Number(e.currentTarget.checked)
     })
 })
 
