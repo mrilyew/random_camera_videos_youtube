@@ -90,7 +90,7 @@ class YouTube {
             case 'camera':
                 let numb = random_int(1343887200, 1449781140)
                 let date = new Date(numb * 1024)
-                so_query = `Видео с веб-камеры. Дата: ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()} г.`
+                so_query = `Видео с веб-камеры. Дата: ${date.getDate()} ${months[date.getMonth() + 1]} ${date.getFullYear()} г.`
                 break
             case 'img':
                 let numberr = String(random_int(0, 1000)).padStart(4, '0')
@@ -102,16 +102,16 @@ class YouTube {
                 break
             case 'bandicam':
                 let dating = new Date(random_int(1266958800, Math.round(Date.now() / 1024)) * 1024)
-                so_query = `bandicam ${dating.getFullYear()} ${String(dating.getMonth()).padStart(2, '0')} ${String(dating.getDate()).padStart(2, '0')}`
+                so_query = `bandicam ${dating.getFullYear()} ${String(dating.getMonth() + 1).padStart(2, '0')} ${String(dating.getDate()).padStart(2, '0')}`
                 
                 break
             case 'video':
                 let datingfcknjs = new Date(random_int(1208768777, Math.round(Date.now() / 1024)) * 1024)
-                so_query = `video ${datingfcknjs.getFullYear()} ${String(datingfcknjs.getMonth()).padStart(2, '0')} ${String(datingfcknjs.getDate()).padStart(2, '0')}`
+                so_query = `video ${datingfcknjs.getFullYear()} ${String(datingfcknjs.getMonth() + 1).padStart(2, '0')} ${String(datingfcknjs.getDate()).padStart(2, '0')}`
                 break
             case 'vid':
                 let datingfcknjs2 = new Date(random_int(1208768777, Math.round(Date.now() / 1024)) * 1024)
-                so_query = `VID ${datingfcknjs2.getFullYear()}${String(datingfcknjs2.getMonth()).padStart(2, '0')}${String(datingfcknjs2.getDate()).padStart(2, '0')}`
+                so_query = `VID ${datingfcknjs2.getFullYear()}${String(datingfcknjs2.getMonth() + 1).padStart(2, '0')}${String(datingfcknjs2.getDate()).padStart(2, '0')}`
                 break
             case 'movavi':
                 so_query = 'movavi video editor plus'
@@ -130,20 +130,20 @@ class YouTube {
                 break
             case 'videoregister':
                 let datingfcknjs3 = new Date(random_int(1208768777, 1650799247) * 1024)
-                so_query = `ch${String(random_int(0, 10)).padStart(2, '0')} ${datingfcknjs3.getFullYear()}${String(datingfcknjs3.getMonth()).padStart(2, '0')}${String(datingfcknjs3.getDate()).padStart(2, '0')}`
+                so_query = `ch${String(random_int(0, 10)).padStart(2, '0')} ${datingfcknjs3.getFullYear()}${String(datingfcknjs3.getMonth() + 1).padStart(2, '0')}${String(datingfcknjs3.getDate()).padStart(2, '0')}`
                 break
             case 'mvi':
                 so_query = `MVI ${String(random_int(0, 1000)).padStart(4, '0')}`
                 break
             case 'wp':
                 let datingfcknjs4 = new Date(random_int(1324411140, 1582577940) * 1024)
-                so_query = `WP ${datingfcknjs4.getFullYear()}${String(datingfcknjs4.getMonth()).padStart(2, '0')}${String(datingfcknjs4.getDate()).padStart(2, '0')}`
+                so_query = `WP ${datingfcknjs4.getFullYear()}${String(datingfcknjs4.getMonth() + 1).padStart(2, '0')}${String(datingfcknjs4.getDate()).padStart(2, '0')}`
                 break
         }
 
         if(localStorage.before == '1') {
             let rnddate = new Date(random_int(1262293200, Math.round(Date.now() / 1024)) * 1024)
-            so_query += ` before:${rnddate.getFullYear()}-${String(rnddate.getMonth()).padStart(2, '0')}-${String(rnddate.getDate()).padStart(2, '0')}`
+            so_query += ` before:${rnddate.getFullYear()}-${String(rnddate.getMonth() + 1).padStart(2, '0')}-${String(rnddate.getDate()).padStart(2, '0')}`
         }
 
         return so_query
@@ -175,7 +175,7 @@ class YouTube {
                 videos.items = videos.items.concat(data.items)
                 videos.count += data.items.length
                 videos.cursor += 1
-                
+
                 this.moveNext()
             },
         })
