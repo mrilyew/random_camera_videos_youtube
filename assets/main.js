@@ -289,22 +289,33 @@ $(document).on('click', '#settings_btn', (e) => {
     makeMessagebox('Настройки', `
         <p>Запрос</p>
         <select id='query'>
-            <option value='camera' ${localStorage.query_type == 'camera' ? 'selected' : ''}>Видео с веб-камеры. Дата: DD MM YYYY г.</option>
-            <option value='img' ${localStorage.query_type == 'img' ? 'selected' : ''}>IMG XXXX</option>
-            <option value='bandicam' ${localStorage.query_type == 'bandicam' ? 'selected' : ''}>bandicam YYYY MM DD</option>
-            <option value='video' ${localStorage.query_type == 'video' ? 'selected' : ''}>video YYYY MM DD</option>
-            <option value='vid' ${localStorage.query_type == 'vid' ? 'selected' : ''}>VID YYYY MM DD</option>
-            <option value='movavi' ${localStorage.query_type == 'movavi' ? 'selected' : ''}>movavi video editor plus</option>
-            <option value='gopro4' ${localStorage.query_type == 'gopro4' ? 'selected' : ''}>GOPRXXXX</option>
-            <option value='gopro7' ${localStorage.query_type == 'gopro7' ? 'selected' : ''}>GH01XXXX</option>
-            <option value='dsc' ${localStorage.query_type == 'dsc' ? 'selected' : ''}>DSC XXXX</option>
-            <option value='nikon' ${localStorage.query_type == 'nikon' ? 'selected' : ''}>DSCNXXXX</option>
-            <option value='samsung' ${localStorage.query_type == 'samsung' ? 'selected' : ''}>SAM_XXXX</option>
-            <option value='videoregister' ${localStorage.query_type == 'videoregister' ? 'selected' : ''}>CHXX YYYY MM DD</option>
-            <option value='mvi' ${localStorage.query_type == 'mvi' ? 'selected' : ''}>MVI XXXX</option>
-            <option value='wp' ${localStorage.query_type == 'wp' ? 'selected' : ''}>WP YYYYMMDD</option>
+            <optgroup label='Общие запросы'>
+                <option value='video' ${localStorage.query_type == 'video' ? 'selected' : ''}>video YYYY MM DD</option>
+                <option value='vid' ${localStorage.query_type == 'vid' ? 'selected' : ''}>VID YYYY MM DD</option>
+            </optgroup>
+            <optgroup label='Мобильные телефоны'>
+                <option value='wp' ${localStorage.query_type == 'wp' ? 'selected' : ''}>WP YYYYMMDD</option>
+                <option value='samsung' ${localStorage.query_type == 'samsung' ? 'selected' : ''}>SAM_XXXX</option>
+            </optgroup>
+            <optgroup label='Фотоаппараты и камеры'>
+                <option value='img' ${localStorage.query_type == 'img' ? 'selected' : ''}>IMG XXXX</option>
+                <option value='mvi' ${localStorage.query_type == 'mvi' ? 'selected' : ''}>MVI XXXX</option>
+                <option value='gopro4' ${localStorage.query_type == 'gopro4' ? 'selected' : ''}>GOPRXXXX</option>
+                <option value='gopro7' ${localStorage.query_type == 'gopro7' ? 'selected' : ''}>GH01XXXX</option>
+                <option value='dsc' ${localStorage.query_type == 'dsc' ? 'selected' : ''}>DSC XXXX</option>
+                <option value='nikon' ${localStorage.query_type == 'nikon' ? 'selected' : ''}>DSCNXXXX</option>
+            </optgroup>
+            <optgroup label='Функции YouTube'>
+                <option value='camera' ${localStorage.query_type == 'camera' ? 'selected' : ''}>Видео с веб-камеры. Дата: DD MM YYYY г.</option>
+                <option value='videoregister' ${localStorage.query_type == 'videoregister' ? 'selected' : ''}>CHXX YYYY MM DD</option>
+                <option value='inurl' ${localStorage.query_type == 'inurl' ? 'selected' : ''}>inurl:X</option>
+            </optgroup>
+            <optgroup label='Программы для записи/монтажа'>
+                <option value='bandicam' ${localStorage.query_type == 'bandicam' ? 'selected' : ''}>bandicam YYYY MM DD</option>
+                <option value='movavi' ${localStorage.query_type == 'movavi' ? 'selected' : ''}>movavi video editor plus</option>
+            </optgroup>
+            
             <option value='random' ${localStorage.query_type == 'random' ? 'selected' : ''}>Случайно</option>
-            <option value='inurl' ${localStorage.query_type == 'inurl' ? 'selected' : ''}>inurl:X</option>
         </select>
 
         <br>
