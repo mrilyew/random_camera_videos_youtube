@@ -1,16 +1,28 @@
 let months = [
     'января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
 ]
+let url_string = '0123456789abcdefghijklmnopqrstuvwxyz-_'
 let videos = {
     'count': 0,
     'cursor': 0,
     'items': [],
 }
-let queries = ['camera', 'img', 'dsc', 'bandicam', 'video', 'vid', 'movavi', 'gopro4', 'gopro7', 'nikon', 'samsung', 'videoregister', 'mvi', 'wp']
+let queries = ['camera', 'img', 'dsc', 'bandicam', 'video', 'vid', 'movavi', 'gopro4', 'gopro7', 'nikon', 'samsung', 'videoregister', 'mvi', 'wp', 'inurl']
 
 function random_int(min = 0, max = 100) 
 {
     return Math.round(Math.random() * (max - min) + min)
+}
+
+function random_link(length = 1)
+{
+    let returnme = ''
+
+    for(i = 0; i < length; i++) {
+        returnme += url_string[random_int(0, url_string.length)]
+    }
+
+    return returnme
 }
 
 function makeMessagebox(title, body, width = 283, height = 123)
@@ -138,6 +150,9 @@ class YouTube {
             case 'wp':
                 let datingfcknjs4 = new Date(random_int(1324411140, 1582577940) * 1024)
                 so_query = `WP ${datingfcknjs4.getFullYear()}${String(datingfcknjs4.getMonth() + 1).padStart(2, '0')}${String(datingfcknjs4.getDate()).padStart(2, '0')}`
+                break
+            case 'inurl':
+                so_query = random_link(1)
                 break
         }
 
@@ -289,6 +304,7 @@ $(document).on('click', '#settings_btn', (e) => {
             <option value='mvi' ${localStorage.query_type == 'mvi' ? 'selected' : ''}>MVI XXXX</option>
             <option value='wp' ${localStorage.query_type == 'wp' ? 'selected' : ''}>WP YYYYMMDD</option>
             <option value='random' ${localStorage.query_type == 'random' ? 'selected' : ''}>Случайно</option>
+            <option value='inurl' ${localStorage.query_type == 'inurl' ? 'selected' : ''}>inurl:X</option>
         </select>
 
         <br>
