@@ -152,7 +152,7 @@ class YouTube {
                 so_query = `WP ${datingfcknjs4.getFullYear()}${String(datingfcknjs4.getMonth() + 1).padStart(2, '0')}${String(datingfcknjs4.getDate()).padStart(2, '0')}`
                 break
             case 'inurl':
-                so_query = random_link(1)
+                so_query = 'inurl:' + random_link(1)
                 break
         }
 
