@@ -7,7 +7,7 @@ let videos = {
     'cursor': 0,
     'items': [],
 }
-let queries = ['camera', 'img', 'dsc', 'bandicam', 'video', 'vid', 'movavi', 'gopro4', 'gopro7', 'nikon', 'samsung', 'videoregister', 'mvi', 'wp', 'inurl']
+let queries = ['camera', 'img', 'dsc', 'bandicam', 'video', 'vid', 'movavi', 'gopro4', 'gopro7', 'nikon', 'samsung', 'videoregister', 'mvi', 'wp', 'inurl', 'pict']
 
 function random_int(min = 0, max = 100) 
 {
@@ -153,6 +153,9 @@ class YouTube {
                 break
             case 'inurl':
                 so_query = 'inurl:' + random_link(1)
+                break
+            case 'pict':
+                so_query = `PICT${String(random_int(0, 1000)).padStart(4, '0')}`
                 break
         }
 
@@ -304,6 +307,7 @@ $(document).on('click', '#settings_btn', (e) => {
                 <option value='gopro7' ${localStorage.query_type == 'gopro7' ? 'selected' : ''}>GH01XXXX</option>
                 <option value='dsc' ${localStorage.query_type == 'dsc' ? 'selected' : ''}>DSC XXXX</option>
                 <option value='nikon' ${localStorage.query_type == 'nikon' ? 'selected' : ''}>DSCNXXXX</option>
+                <option value='pict' ${localStorage.query_type == 'pict' ? 'selected' : ''}>PICTXXXX</option>
             </optgroup>
             <optgroup label='Функции YouTube'>
                 <option value='camera' ${localStorage.query_type == 'camera' ? 'selected' : ''}>Видео с веб-камеры. Дата: DD MM YYYY г.</option>

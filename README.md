@@ -19,6 +19,7 @@
 |3D_RXXXX (3D_LXXXX)|3D-съёмка на GoPro. Роликов с таким названием на YouTube мало, так что лучше искать вручную.|
 |DJI XXXX|Видео, снятые на дроны DJI. Лучше искать вручную (на YouTube)|
 |chXX YYYY MM DD|Видео, снятые видеорегистратором. Лучше искать вручную|
+|PICTXXXX|Видео, записанные на видеорегистратор либо на FPV-дрон|
 |bandicam YYYY MM DD|Видео, записанные программой Bandicam|
 |Desktop YYYY.MM.DD|Видео, записанное с помощью ShadowPlay |
 |movavi video editor plus|Видео, смонтированные и выложенные через Movavi Video Editor|
